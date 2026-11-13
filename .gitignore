@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.DS_Store
+build/
+dist/
+# data that may not be redistributed
+data_raw/
+data_proc/unpacked/
+data_proc/k5_authors/
+data_proc/trials_K7_dec.csv
+paper/second_example/original/*/
+paper/second_example/cache/
+paper/second_example/elp_bates/
+# built submission files
+paper/submission/*.docx
+paper/submission/*.pdf
+!paper/submission/_reference.docx

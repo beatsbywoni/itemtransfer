@@ -1,0 +1,13 @@
+{
+ "stage": "nonlinear_frequency",
+ "seed": 20261113,
+ "n_boot": 200,
+ "itemtransfer": "0.2.0",
+ "n_items": {
+  "BLP": 18598,
+  "DLP": 13568,
+  "ELP": 30052,
+  "MEGALEX": 27622
+ },
+ "seconds": 389.1
+}

@@ -1,0 +1,5 @@
+sample,n_participants,n_words,n_trials,max_trials_per_cell,words_per_participant_median,words_per_participant_min,words_per_participant_max,share_of_list_per_participant,trials_per_word_median,trials_per_word_min,trials_per_word_max,trials_per_word_per_half_median,smaller_half_min_over_words_median_over_splits,smaller_half_min_over_words_min_over_splits,n_word_half_cells_without_trial_in_200_splits,mean_accuracy,share_words_at_ceiling,share_words_above_0_95
+ELP,814,40481,1372240,1,1686.0,1672,1687,0.041649168745831376,34.0,30,37,17.0,5.0,3,0,0.8390740686760334,0.15901287023541907,0.3489044242978187
+BLP,78,28730,1120470,1,14365.0,14365,14365,0.5,39.0,38,40,19.5,18.0,12,0,0.7569216489508866,0.16881308736512357,0.30630003480682216
+DLP,39,14089,549471,1,14089.0,14089,14089,1.0,39.0,39,39,19.0,19.0,19,0,0.8412527685719537,0.22854709347718077,0.4092554475122436
+MEGALEX,96,28466,1311740,1,13673.0,13401,13750,0.4803274081360219,46.0,37,74,23.0,12.0,8,0,0.8894590391388537,0.23870582449237687,0.5715590529052202

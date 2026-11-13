@@ -1,0 +1,13 @@
+family,measure,n_items,n_distinct,n_levels,kind,gap_ratio
+BLP,zipf,19241,532,0,none,0.1573208722741433
+BLP,length,19241,11,11,discrete,inf
+BLP,old20,19241,93,0,none,0.04347826086956545
+DLP,zipf,14089,562,0,none,0.15029761904761904
+DLP,length,14089,11,11,discrete,inf
+DLP,old20,14089,96,0,none,0.03191489361702116
+ELP,zipf,30992,532,0,none,0.15029761904761904
+ELP,length,30992,21,21,discrete,inf
+ELP,old20,30992,145,0,none,
+MEGALEX,zipf,28466,554,0,none,0.15142428785607195
+MEGALEX,length,28466,8,8,discrete,inf
+MEGALEX,old20,28466,81,0,none,0.11111111111111122

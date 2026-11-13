@@ -1,0 +1,2 @@
+megastudy,n_words,n_matched_exact_string,n_compared,pearson,spearman,share_within_0_005,share_within_0_05,mean_difference,max_abs_difference,median_responses_recomputed,median_obs_published,note
+English Lexicon Project,40481,40481,40481,0.9963063131239694,0.9817741227427771,0.6486005780489612,0.9742348262147674,-0.0030728690881694056,0.24857142857142855,34.0,26.0,"published accuracy is rounded to two decimals; Obs is the number of observations the website reports, which is lower than the number of raw responses"

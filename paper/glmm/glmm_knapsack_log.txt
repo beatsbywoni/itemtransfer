@@ -1,0 +1,4 @@
+R R version 4.6.2 (2026-10-29)
+lme4 2.1.0
+responses 11450
+minutes 0.5

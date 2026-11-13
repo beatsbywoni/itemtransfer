@@ -1,0 +1,5 @@
+megastudy,language,n_words,n_zipf_unknown,share_zipf_unknown,zipf_min_known,zipf_median,zipf_max,n_words_with_non_letter,n_words_with_capital,n_words_non_ascii,length_min,length_max,length_median,old20_reference_lexicon_size,old20_median,old20_min,old20_max,old20_equal_lexicon_median
+English Lexicon Project,en,40481,963,0.023788938020305822,1.01,3.06,7.73,1099,2338,0,1,21,8.0,40481,2.75,1.0,10.1,3.25
+British Lexicon Project,en,28730,666,0.023181343543334492,1.01,2.88,7.73,2,0,56,2,13,7.0,28730,1.95,1.0,5.75,2.35
+Dutch Lexicon Project,nl,14089,521,0.03697920363404074,1.01,3.25,7.73,150,0,61,2,12,6.0,14089,1.9,1.0,5.9,1.9
+MEGALEX,fr,28466,844,0.029649406309281246,1.01,3.14,7.68,0,0,9349,2,9,7.0,28466,2.35,1.0,5.0,2.7

@@ -1,0 +1,39 @@
+{
+ "stage": "step5",
+ "started": "2026-11-13T10:19:41+0900",
+ "seed": 20261113,
+ "python": "3.13.17",
+ "numpy": "2.5.3",
+ "pandas": "3.0.5",
+ "scipy": "1.18.1",
+ "itemtransfer": "0.1.0",
+ "cpu_count": 2,
+ "itemtransfer_path": "./itemtransfer/itemtransfer",
+ "n_word_trials_all": 4353921,
+ "n_shared_words_elp_blp": 18978,
+ "sample": {
+  "n_words_per_family": 1000,
+  "seed": 20261113,
+  "n_trials": {
+   "BLP": 39008,
+   "DLP": 39000,
+   "ELP": 33892,
+   "MEGALEX": 46026
+  },
+  "rule": "numpy.random.default_rng(seed).choice without replacement, families in the order ELP, BLP, DLP, MEGALEX, words sorted by identifier, after the shared-word assignment"
+ },
+ "seconds_transfer_sample": 126.6,
+ "settings": {
+  "n_sim": 200,
+  "n_boot": 200,
+  "target_scale": [
+   8,
+   4
+  ],
+  "target_reps": 5,
+  "prediction": true,
+  "measure": "zipf"
+ },
+ "seconds": 4750.8,
+ "max_rss_gb": 2.2
+}

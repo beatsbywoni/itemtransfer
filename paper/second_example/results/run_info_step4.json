@@ -1,0 +1,21 @@
+{
+ "stage": "step4",
+ "started": "2026-11-13T10:59:43+0900",
+ "seed": 20261113,
+ "python": "3.13.17",
+ "numpy": "2.5.3",
+ "pandas": "3.0.5",
+ "scipy": "1.18.1",
+ "itemtransfer": "0.1.0",
+ "cpu_count": 2,
+ "itemtransfer_path": "./itemtransfer/itemtransfer",
+ "n_word_trials_all": 4353921,
+ "n_shared_words_elp_blp": 18978,
+ "settings": {
+  "max_levels": 25,
+  "n_boot_common_range": 400,
+  "boot_batch": 50
+ },
+ "seconds": 930.3,
+ "max_rss_gb": 2.38
+}

@@ -1,0 +1,66 @@
+['subject', 'age', 'gender', 'block', 'trial', 'testform', 'item', 'dimension', 'distractor', 'puzzle', 'accuracy', 'rt']
+study02: subj=100 trials=4721 n_item=80 resp/item med=50 min=14 max=100 acc mean=0.598 item acc range=0.07-1.00
+    distractor {'minimal': np.int64(2333), 'paired': np.int64(2388)}
+    testform {1: np.int64(1419), 2: np.int64(1435), 3: np.int64(1867)}
+    dimension {1: np.int64(1095), 2: np.int64(967), 3: np.int64(938), 4: np.int64(613), 5: np.int64(324), 6: np.int64(245), 7: np.int64(445), 8: np.int64(94)}
+['subject', 'trial', 'item', 'dimension', 'puzzle', 'choice', 'accuracy', 'rt']
+study03: subj=102 trials=2695 n_item=40 resp/item med=83 min=12 max=102 acc mean=0.633 item acc range=0.07-0.99
+    dimension {1: np.int64(712), 2: np.int64(810), 3: np.int64(629), 4: np.int64(323), 5: np.int64(103), 6: np.int64(67), 7: np.int64(39), 8: np.int64(12)}
+['subject', 'trial', 'dimension', 'item_set', 'test_form', 'item', 'distractor', 'accuracy', 'rt', 'logrt']
+study04: subj=180 trials=1440 n_item=16 resp/item med=90 min=76 max=104 acc mean=0.620 item acc range=0.28-0.98
+    item_set {3: np.int64(1440)}
+    distractor {'pd': np.int64(1440)}
+    test_form {1.0: np.int64(1440)}
+    dimension {2: np.int64(360), 3: np.int64(360), 4: np.int64(360), 5: np.int64(360)}
+['subject', 'trial', 'item_set', 'item', 'distractor', 'shape_set', 'choice', 'accuracy', 'rt', 'all_loaded', 'minimum_resolution', 'browser_interactions']
+study05: subj=342 trials=4104 n_item=12 resp/item med=342 min=342 max=342 acc mean=0.665 item acc range=0.51-0.83
+    item_set {3: np.int64(4104)}
+    shape_set {1: np.int64(1318), 2: np.int64(1460), 3: np.int64(1326)}
+    distractor {'md': np.int64(1026), 'pd': np.int64(3078)}
+['subject', 'trial', 'item_set', 'long_form', 'item_id', 'item', 'distractor', 'shape_set', 'choice', 'accuracy', 'rt', 'all_loaded', 'minimum_resolution', 'browser_interactions']
+valid_long: subj=352 trials=8448 n_item=28 resp/item med=352 min=168 max=352 acc mean=0.649 item acc range=0.53-0.85
+    item_set {3: np.int64(8448)}
+    shape_set {1: np.int64(3000), 2: np.int64(2432), 3: np.int64(3016)}
+    distractor {'md': np.int64(352), 'pd': np.int64(8096)}
+    long_form {1: np.int64(4416), 2: np.int64(4032)}
+['subject', 'trial', 'item_set', 'short_form', 'item_id', 'item', 'distractor', 'shape_set', 'choice', 'accuracy', 'rt', 'all_loaded', 'minimum_resolution', 'browser_interactions']
+valid_short: subj=341 trials=4092 n_item=12 resp/item med=341 min=341 max=341 acc mean=0.669 item acc range=0.53-0.84
+    item_set {3: np.int64(4092)}
+    shape_set {1: np.int64(1362), 2: np.int64(1366), 3: np.int64(1364)}
+    distractor {'md': np.int64(341), 'pd': np.int64(3751)}
+    short_form {1: np.int64(1368), 2: np.int64(1356), 3: np.int64(1368)}
+calib(template): subj=1584 trials=25344 n_item=64 resp/item med=395 min=368 max=429 acc mean=0.596 item acc range=0.33-0.91
+calib(clone): subj=1584 trials=25344 n_item_id=384 resp/item med=66 min=49 max=88 acc mean=0.596 item acc range=0.09-0.99
+reject cols ['subject', 'resolution', 'missing', 'rapid', 'reject'] 1584
+    item_set {3: np.int64(25344)}
+    test_form {1: np.int64(8563), 2: np.int64(8464), 3: np.int64(8317)}
+    shape_set {1: np.int64(8620), 2: np.int64(8369), 3: np.int64(8355)}
+    distractor {'md': np.int64(12592), 'pd': np.int64(12752)}
+    dimension {2: np.int64(5937), 3: np.int64(5560), 4: np.int64(4717), 5: np.int64(3197), 6: np.int64(2765), 7: np.int64(2382), 8: np.int64(786)}
+NaN accuracy 477
+features (384, 31) templates 64
+distractor
+md    64
+pd    64
+Name: item, dtype: int64
+dimension dist {2: np.int64(15), 3: np.int64(14), 4: np.int64(12), 5: np.int64(8), 6: np.int64(7), 7: np.int64(6), 8: np.int64(2)}
+n_features dist {1: np.int64(14), 2: np.int64(22), 3: np.int64(19), 4: np.int64(9)}
+n_rules dist {1: np.int64(1), 2: np.int64(14), 3: np.int64(19), 4: np.int64(12), 5: np.int64(12), 6: np.int64(6)}
+            dimension  n_features  n_rules
+dimension        1.00        0.32     0.92
+n_features       0.32        1.00     0.18
+n_rules          0.92        0.18     1.00
+templates by distractor availability:
+distractor
+md+pd    64
+Name: count, dtype: int64
+             acc  dimension  n_features  n_rules
+acc         1.00      -0.60       -0.52    -0.58
+dimension  -0.60       1.00        0.32     0.92
+n_features -0.52       0.32        1.00     0.18
+n_rules    -0.58       0.92        0.18     1.00
+study01 dims (80, 2)
+(400, 8) <StringArray>
+['total', 'Ad', 'MA', 'OA', 'YA']
+Length: 5, dtype: str 80
+rpm stim 9 ['a11', 'a24', 'a28', 'a36', 'a43', 'a48', 'a49', 'a53', 'a55'] 350

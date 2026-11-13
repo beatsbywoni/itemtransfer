@@ -1,0 +1,259 @@
+{
+ "versions": {
+  "python": "3.13.17",
+  "numpy": "2.5.3",
+  "pandas": "3.0.5",
+  "scipy": "1.18.1",
+  "matplotlib": "3.11.2",
+  "itemtransfer": "0.2.0",
+  "platform": "Linux-6.18.44-fc-v445-x86_64-with-glibc2.39",
+  "cores": 2
+ },
+ "studies": {
+  "sim00": {
+   "seconds": 793.7,
+   "pilot": false,
+   "versions": {
+    "python": "3.13.17",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "itemtransfer": "0.1.0",
+    "platform": "Linux-6.18.44-fc-v445-x86_64-with-glibc2.39",
+    "cores": 2
+   }
+  },
+  "sim01": {
+   "study": "sim01",
+   "runs": [
+    {
+     "wall_seconds": 4016.0,
+     "cpu_seconds": 8031.0,
+     "chunks": 110,
+     "finished": "2026-11-13 11:43:31",
+     "n_jobs": 2
+    }
+   ],
+   "study_seed": 2601,
+   "default_n_rep": 1000,
+   "chunk_size": 100,
+   "versions": {
+    "python": "3.13.17",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "itemtransfer": "0.1.0",
+    "platform": "Linux-6.18.44-fc-v445-x86_64-with-glibc2.39",
+    "cores": 2
+   },
+   "seed_rule": "numpy.random.default_rng([study_seed, cell_seed, chunk * 1000 + replication])"
+  },
+  "sim02": {
+   "study": "sim02",
+   "runs": [
+    {
+     "wall_seconds": 1186.6,
+     "cpu_seconds": 2372.6,
+     "chunks": 420,
+     "finished": "2026-11-13 12:43:29",
+     "n_jobs": 2
+    }
+   ],
+   "study_seed": 2602,
+   "default_n_rep": 1000,
+   "chunk_size": 100,
+   "versions": {
+    "python": "3.13.17",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "itemtransfer": "0.1.0",
+    "platform": "Linux-6.18.44-fc-v445-x86_64-with-glibc2.39",
+    "cores": 2
+   },
+   "seed_rule": "numpy.random.default_rng([study_seed, cell_seed, chunk * 1000 + replication])"
+  },
+  "sim03": {
+   "study": "sim03",
+   "runs": [
+    {
+     "wall_seconds": 506.4,
+     "cpu_seconds": 1005.0,
+     "chunks": 580,
+     "finished": "2026-11-13 14:53:47",
+     "n_jobs": 2
+    },
+    {
+     "wall_seconds": 0.1,
+     "cpu_seconds": 0.0,
+     "chunks": 580,
+     "finished": "2026-11-13 14:56:44",
+     "n_jobs": 2
+    }
+   ],
+   "study_seed": 2603,
+   "default_n_rep": 1000,
+   "chunk_size": 50,
+   "versions": {
+    "python": "3.13.17",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "itemtransfer": "0.1.0",
+    "platform": "Linux-6.18.44-fc-v445-x86_64-with-glibc2.39",
+    "cores": 2
+   },
+   "seed_rule": "numpy.random.default_rng([study_seed, cell_seed, chunk * 1000 + replication])"
+  },
+  "sim04": {
+   "study": "sim04",
+   "runs": [
+    {
+     "wall_seconds": 1577.1,
+     "cpu_seconds": 3151.2,
+     "chunks": 224,
+     "finished": "2026-11-13 12:10:16",
+     "n_jobs": 2
+    }
+   ],
+   "study_seed": 2604,
+   "default_n_rep": 2000,
+   "chunk_size": 250,
+   "versions": {
+    "python": "3.13.17",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "itemtransfer": "0.1.0",
+    "platform": "Linux-6.18.44-fc-v445-x86_64-with-glibc2.39",
+    "cores": 2
+   },
+   "seed_rule": "numpy.random.default_rng([study_seed, cell_seed, chunk * 1000 + replication])"
+  },
+  "sim05": {
+   "study": "sim05",
+   "runs": [
+    {
+     "wall_seconds": 1682.5,
+     "cpu_seconds": 3356.9,
+     "chunks": 92,
+     "finished": "2026-11-13 15:27:34",
+     "n_jobs": 2
+    },
+    {
+     "wall_seconds": 0.0,
+     "cpu_seconds": 0.0,
+     "chunks": 92,
+     "finished": "2026-11-13 15:27:45",
+     "n_jobs": 2
+    }
+   ],
+   "study_seed": 2605,
+   "default_n_rep": 500,
+   "chunk_size": 25,
+   "versions": {
+    "python": "3.13.17",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "itemtransfer": "0.1.0",
+    "platform": "Linux-6.18.44-fc-v445-x86_64-with-glibc2.39",
+    "cores": 2
+   },
+   "seed_rule": "numpy.random.default_rng([study_seed, cell_seed, chunk * 1000 + replication])"
+  },
+  "sim06": {
+   "study": "sim06",
+   "runs": [
+    {
+     "wall_seconds": 709.8,
+     "cpu_seconds": 1419.0,
+     "chunks": 90,
+     "finished": "2026-11-13 16:20:47",
+     "n_jobs": 2
+    }
+   ],
+   "study_seed": 2606,
+   "default_n_rep": 1000,
+   "chunk_size": 100,
+   "versions": {
+    "python": "3.13.17",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "itemtransfer": "0.2.0",
+    "platform": "Linux-6.18.44-fc-v445-x86_64-with-glibc2.39",
+    "cores": 2
+   },
+   "seed_rule": "numpy.random.default_rng([study_seed, cell_seed, chunk * 1000 + replication])"
+  },
+  "sim07": {
+   "study": "sim07",
+   "runs": [
+    {
+     "wall_seconds": 64.9,
+     "cpu_seconds": 128.2,
+     "chunks": 20,
+     "finished": "2026-11-13 16:58:11",
+     "n_jobs": 2
+    }
+   ],
+   "study_seed": 2607,
+   "default_n_rep": 500,
+   "chunk_size": 50,
+   "versions": {
+    "python": "3.13.17",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "itemtransfer": "0.2.0",
+    "platform": "Linux-6.18.44-fc-v445-x86_64-with-glibc2.39",
+    "cores": 2
+   },
+   "seed_rule": "numpy.random.default_rng([study_seed, cell_seed, chunk * 1000 + replication])"
+  },
+  "sim08": {
+   "study": "sim08",
+   "runs": [
+    {
+     "wall_seconds": 2122.5,
+     "cpu_seconds": 4240.0,
+     "chunks": 358,
+     "finished": "2026-11-13 16:56:23",
+     "n_jobs": 2
+    }
+   ],
+   "study_seed": 2608,
+   "default_n_rep": 1000,
+   "chunk_size": 50,
+   "versions": {
+    "python": "3.13.17",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "itemtransfer": "0.2.0",
+    "platform": "Linux-6.18.44-fc-v445-x86_64-with-glibc2.39",
+    "cores": 2
+   },
+   "seed_rule": "numpy.random.default_rng([study_seed, cell_seed, chunk * 1000 + replication])"
+  }
+ },
+ "runs_stopped_and_resumed_wall_seconds": {
+  "sim02 (first 104 of 420 chunks, results/run_all.log)": 703.0,
+  "sim03 (first 543 of 580 chunks, results/run_stage3.log)": 7200.0,
+  "sim05 (first attempt without the items-only comparison, discarded)": 400.0,
+  "sim06 (first 44 of 90 chunks, stopped by a restart of the container)": 700.0
+ },
+ "note": "Two cores. During sim00, sim01 and sim04 the cores were shared with another job of the same project, so those wall times overstate the cost by a factor of about 2 to 3.",
+ "total_wall_seconds_simulation": 21662.6,
+ "total_wall_hours_simulation": 6.02
+}

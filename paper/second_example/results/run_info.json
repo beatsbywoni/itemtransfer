@@ -1,0 +1,300 @@
+{
+ "sensitivity": {
+  "stage": "sensitivity",
+  "started": "2026-11-13T11:15:16+0900",
+  "seed": 20261113,
+  "python": "3.13.17",
+  "numpy": "2.5.3",
+  "pandas": "3.0.5",
+  "scipy": "1.18.1",
+  "itemtransfer": "0.1.0",
+  "cpu_count": 2,
+  "itemtransfer_path": "./itemtransfer/itemtransfer",
+  "n_word_trials_all": 4353921,
+  "n_shared_words_elp_blp": 18978,
+  "n_items_opposite": {
+   "BLP": 19241,
+   "DLP": 14089,
+   "ELP": 30992,
+   "MEGALEX": 28466
+  },
+  "n_items_dropped": {
+   "BLP": 9752,
+   "DLP": 14089,
+   "ELP": 21503,
+   "MEGALEX": 28466
+  },
+  "n_items_known_to_wordfreq": {
+   "BLP": 18598,
+   "DLP": 13568,
+   "ELP": 30052,
+   "MEGALEX": 27622
+  },
+  "settings": {
+   "n_boot": 200,
+   "boot_batch": 50,
+   "n_splits": 500,
+   "weights": "trials"
+  },
+  "seconds": 3018.3,
+  "max_rss_gb": 1.74
+ },
+ "step2": {
+  "stage": "step2",
+  "started": "2026-11-13T10:19:41+0900",
+  "seed": 20261113,
+  "python": "3.13.17",
+  "numpy": "2.5.3",
+  "pandas": "3.0.5",
+  "scipy": "1.18.1",
+  "itemtransfer": "0.1.0",
+  "cpu_count": 2,
+  "itemtransfer_path": "./itemtransfer/itemtransfer",
+  "n_word_trials_all": 4353921,
+  "n_shared_words_elp_blp": 18978,
+  "agreement_n_shared": 18978,
+  "seconds": 157.9,
+  "max_rss_gb": 1.97
+ },
+ "step3": {
+  "stage": "step3",
+  "started": "2026-11-13T10:23:33+0900",
+  "seed": 20261113,
+  "python": "3.13.17",
+  "numpy": "2.5.3",
+  "pandas": "3.0.5",
+  "scipy": "1.18.1",
+  "itemtransfer": "0.1.0",
+  "cpu_count": 2,
+  "itemtransfer_path": "./itemtransfer/itemtransfer",
+  "n_word_trials_all": 4353921,
+  "n_shared_words_elp_blp": 18978,
+  "n_items_by_family": {
+   "BLP": 19241,
+   "DLP": 14089,
+   "ELP": 30992,
+   "MEGALEX": 28466
+  },
+  "n_trials_by_family": {
+   "BLP": 750388,
+   "DLP": 549471,
+   "ELP": 1050513,
+   "MEGALEX": 1311740
+  },
+  "settings": {
+   "n_boot": 1000,
+   "boot_batch": 50,
+   "n_splits": 500,
+   "n_splits_boot": 10,
+   "weights": "trials"
+  },
+  "three_measure_within_family_bootstrap": {
+   "n_boot": 500,
+   "seed": [
+    20261113,
+    7
+   ]
+  },
+  "seconds": 2133.1,
+  "max_rss_gb": 1.48
+ },
+ "step3_equal": {
+  "stage": "step3_equal",
+  "started": "2026-11-13T10:59:42+0900",
+  "seed": 20261113,
+  "python": "3.13.17",
+  "numpy": "2.5.3",
+  "pandas": "3.0.5",
+  "scipy": "1.18.1",
+  "itemtransfer": "0.1.0",
+  "cpu_count": 2,
+  "itemtransfer_path": "./itemtransfer/itemtransfer",
+  "n_word_trials_all": 4353921,
+  "n_shared_words_elp_blp": 18978,
+  "n_items_by_family": {
+   "BLP": 19241,
+   "DLP": 14089,
+   "ELP": 30992,
+   "MEGALEX": 28466
+  },
+  "n_trials_by_family": {
+   "BLP": 750388,
+   "DLP": 549471,
+   "ELP": 1050513,
+   "MEGALEX": 1311740
+  },
+  "settings": {
+   "n_boot": 1000,
+   "boot_batch": 50,
+   "n_splits": 500,
+   "n_splits_boot": 10,
+   "weights": "equal"
+  },
+  "seconds": 3879.6,
+  "max_rss_gb": 1.51
+ },
+ "step4": {
+  "stage": "step4",
+  "started": "2026-11-13T10:59:43+0900",
+  "seed": 20261113,
+  "python": "3.13.17",
+  "numpy": "2.5.3",
+  "pandas": "3.0.5",
+  "scipy": "1.18.1",
+  "itemtransfer": "0.1.0",
+  "cpu_count": 2,
+  "itemtransfer_path": "./itemtransfer/itemtransfer",
+  "n_word_trials_all": 4353921,
+  "n_shared_words_elp_blp": 18978,
+  "settings": {
+   "max_levels": 25,
+   "n_boot_common_range": 400,
+   "boot_batch": 50
+  },
+  "seconds": 930.3,
+  "max_rss_gb": 2.38
+ },
+ "step5": {
+  "stage": "step5",
+  "started": "2026-11-13T10:19:41+0900",
+  "seed": 20261113,
+  "python": "3.13.17",
+  "numpy": "2.5.3",
+  "pandas": "3.0.5",
+  "scipy": "1.18.1",
+  "itemtransfer": "0.1.0",
+  "cpu_count": 2,
+  "itemtransfer_path": "./itemtransfer/itemtransfer",
+  "n_word_trials_all": 4353921,
+  "n_shared_words_elp_blp": 18978,
+  "sample": {
+   "n_words_per_family": 1000,
+   "seed": 20261113,
+   "n_trials": {
+    "BLP": 39008,
+    "DLP": 39000,
+    "ELP": 33892,
+    "MEGALEX": 46026
+   },
+   "rule": "numpy.random.default_rng(seed).choice without replacement, families in the order ELP, BLP, DLP, MEGALEX, words sorted by identifier, after the shared-word assignment"
+  },
+  "seconds_transfer_sample": 126.6,
+  "settings": {
+   "n_sim": 200,
+   "n_boot": 200,
+   "target_scale": [
+    8,
+    4
+   ],
+   "target_reps": 5,
+   "prediction": true,
+   "measure": "zipf"
+  },
+  "seconds": 4750.8,
+  "max_rss_gb": 2.2
+ },
+ "step1": {
+  "wordfreq": "3.1.1",
+  "rapidfuzz": "3.14.6",
+  "numpy": "2.5.3",
+  "pandas": "3.0.5",
+  "seed_equal_lexicon": 20261113,
+  "dlp_length": {
+   "n_published_missing": 146,
+   "n_differ": 209,
+   "n_differ_with_non_ascii": 61,
+   "n_differ_explained_by_two_extra_per_non_ascii": 209,
+   "n_differ_with_non_letter": 150,
+   "n_non_ascii_words_total": 61,
+   "n_non_ascii_words_with_published_value": 61,
+   "n_missing_with_non_ascii": 0,
+   "n_missing_with_apostrophe": 0
+  },
+  "seconds": 84.0,
+  "finished": "2026-11-13T10:10:07+0900",
+  "elp_published": {
+   "rows_in_file": 79672,
+   "duplicate_lowercase_keys_in_file": 0,
+   "elp_words": 40481,
+   "matched_exact": 40481,
+   "length_differs_words_with_apostrophe": 1099,
+   "length_differs_total": 1099,
+   "old_missing": 1099
+  },
+  "load_logs": {
+   "ELP": {
+    "files_in_zip": 820,
+    "files_skipped": [
+     "9999.LDT",
+     "793DATA.LDT",
+     "Data999.LDT",
+     "Data1000.LDT",
+     "Data1010.LDT",
+     "Data1016.LDT"
+    ],
+    "files_used": 814,
+    "trials_all": 2745952,
+    "trials_nonword_dropped": 1372990,
+    "word_trials_before_exclusion": 1372962,
+    "word_trials_invalid_key_dropped": 722
+   },
+   "BLP": {
+    "trials_all": 2240940,
+    "trials_nonword_dropped": 1120470,
+    "word_trials_before_exclusion": 1120470,
+    "word_trials_dropped": 0,
+    "word_response_codes": {
+     "W": 848108,
+     "N": 272351,
+     "O": 11
+    }
+   },
+   "DLP": {
+    "trials_all": 1098942,
+    "trials_nonword_dropped": 549471,
+    "word_trials_before_exclusion": 549471,
+    "word_trials_dropped": 0,
+    "word_response_codes": {
+     "W": 462244,
+     "N": 86603,
+     "T": 624
+    },
+    "block_50_not_loaded": "dlp-trials-block-50.txt.zip (repetition of block 1)"
+   },
+   "MEGALEX": {
+    "trials_all": 2596095,
+    "trials_nonword_dropped": 1284263,
+    "word_trials_before_exclusion": 1311832,
+    "word_trials_repetition_dropped": 92,
+    "items_with_published_values": 25776
+   }
+  }
+ },
+ "versions": {
+  "python": "3.13.17",
+  "numpy": "2.5.3",
+  "pandas": "3.0.5",
+  "scipy": "1.18.1",
+  "matplotlib": "3.11.2",
+  "itemtransfer": "0.1.0",
+  "wordfreq": "3.1.1",
+  "rapidfuzz": "3.14.6"
+ },
+ "seeds": {
+  "main": 20261113,
+  "shared_word_assignment": 20261113,
+  "word_samples": 20261113,
+  "equal_size_reference_lexicon": 20261113,
+  "three_measure_bootstrap": [
+   20261113,
+   7
+  ],
+  "ordering_shift_check": [
+   20261113,
+   11
+  ]
+ },
+ "total_seconds_all_stages": 14954.0,
+ "finish_seconds": 9.6,
+ "machine": "2 cores, 7 GB RAM; stages ran partly in parallel, so wall-clock times include contention"
+}

@@ -1,0 +1,54 @@
+ELP acc values {True: 2349471, False: 395111, None: 1370}
+BLP lexicality {'N': 1120470, 'W': 1120470}
+DLP lexicality {'N': 549471, 'W': 549471} blocks 57
+MEGALEX types {'word': 1311832, 'pseudoword': 1284263} repetition {0: 2595066, 1: 1029}
+
+## ELP (US English): participants=814 words=40481 word trials=1372240 resp/word median=34 (min 30, 5th pct 33) mean acc=0.839
+   words with acc<0.95: 0.65; acc<0.5: 0.08; words with >=20 resp: 1.000; split-half r=0.760, Spearman-Brown=0.864
+   zipf==0 (not in wordfreq): 0.024; zipf range 0.00-7.73 median 3.06; len range 1-21 median 8
+   Spearman acc~zipf 0.574; acc~len -0.021; zipf~len -0.335
+   binomial slope on zipf: 0.711 (intercept -0.36)
+   binomial slope on len: 0.009 (intercept 1.58)
+
+## BLP (British English): participants=78 words=28728 word trials=1120470 resp/word median=39 (min 38, 5th pct 38) mean acc=0.757
+   words with acc<0.95: 0.65; acc<0.5: 0.19; words with >=20 resp: 1.000; split-half r=0.886, Spearman-Brown=0.939
+   zipf==0 (not in wordfreq): 0.023; zipf range 0.00-7.73 median 2.88; len range 2-13 median 7
+   Spearman acc~zipf 0.694; acc~len 0.028; zipf~len -0.306
+   binomial slope on zipf: 1.058 (intercept -1.68)
+   binomial slope on len: 0.057 (intercept 0.76)
+
+## DLP (Dutch): participants=39 words=14089 word trials=549471 resp/word median=39 (min 39, 5th pct 39) mean acc=0.841
+   words with acc<0.95: 0.59; acc<0.5: 0.10; words with >=20 resp: 1.000; split-half r=0.844, Spearman-Brown=0.916
+   zipf==0 (not in wordfreq): 0.037; zipf range 0.00-7.73 median 3.25; len range 2-12 median 6
+   Spearman acc~zipf 0.536; acc~len 0.105; zipf~len -0.324
+   binomial slope on zipf: 0.698 (intercept -0.36)
+   binomial slope on len: 0.123 (intercept 0.90)
+
+## MEGALEX (French): participants=96 words=28466 word trials=1311740 resp/word median=46 (min 37, 5th pct 42) mean acc=0.889
+   words with acc<0.95: 0.43; acc<0.5: 0.05; words with >=20 resp: 1.000; split-half r=0.795, Spearman-Brown=0.886
+   zipf==0 (not in wordfreq): 0.030; zipf range 0.00-7.68 median 3.14; len range 2-9 median 7
+   Spearman acc~zipf 0.525; acc~len 0.070; zipf~len -0.237
+   binomial slope on zipf: 0.719 (intercept 0.08)
+   binomial slope on len: 0.092 (intercept 1.44)
+
+ELP∩BLP shared words: 18977 ELP only 21504 BLP only 9751
+shared-item agreement (logit acc) r= 0.733 spearman 0.685 n 18553
+
+ELP published measures coverage: {'Log_Freq_HAL': 1.0, 'LgSUBTLWF': 0.877, 'OLD': 0.973, 'Freq_KF': 0.804}
+              mean  zipf  Log_Freq_HAL  LgSUBTLWF   len   OLD  Ortho_N
+mean          1.00  0.57          0.55       0.52 -0.02 -0.14     0.11
+zipf          0.57  1.00          0.94       0.84 -0.33 -0.40     0.29
+Log_Freq_HAL  0.55  0.94          1.00       0.80 -0.34 -0.40     0.29
+LgSUBTLWF     0.52  0.84          0.80       1.00 -0.39 -0.41     0.31
+len          -0.02 -0.33         -0.34      -0.39  1.00  0.87    -0.60
+OLD          -0.14 -0.40         -0.40      -0.41  0.87  1.00    -0.74
+Ortho_N       0.11  0.29          0.29       0.31 -0.60 -0.74     1.00
+
+DLP published measures coverage: {'subtlex.log10.frequency': 0.937, 'OLD20': 1.0, 'celex.frequency': 0.999}
+                         mean  zipf  subtlex.log10.frequency   len  OLD20  coltheart.N
+mean                     1.00  0.54                     0.52  0.11   0.03        -0.03
+zipf                     0.54  1.00                     0.87 -0.32  -0.25         0.23
+subtlex.log10.frequency  0.52  0.87                     1.00 -0.29  -0.25         0.24
+len                      0.11 -0.32                    -0.29  1.00   0.63        -0.57
+OLD20                    0.03 -0.25                    -0.25  0.63   1.00        -0.95
+coltheart.N             -0.03  0.23                     0.24 -0.57  -0.95         1.00

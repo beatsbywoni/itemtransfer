@@ -1,0 +1,5 @@
+family,participants,words,trials,resp_per_word_median,resp_per_word_min,resp_per_word_max,mean_accuracy_trials,mean_accuracy_items,duplicate_participant_item_rows,items_table_rows,items_not_in_trials,paper_participants,paper_words,probe_participants,probe_words,probe_trials,published_accuracy_n,published_accuracy_max_abs_diff,published_accuracy_share_within_0.005,published_accuracy_pearson,published_length_n,published_length_equal_share
+ELP,814,40481,1372240,34.0,30,37,0.839074,0.839087,0,40481,0,816,40481,814,40481,1372240,40481,0.248571,0.646945,0.996306,40481,1.0
+BLP,78,28730,1120470,39.0,38,40,0.756922,0.756784,0,28730,0,78,28730,78,28728,1120470,28730,0.0,1.0,1.0,28730,1.0
+DLP,39,14089,549471,39.0,39,39,0.841253,0.841253,0,14089,0,39,14089,39,14089,549471,14089,0.0,1.0,1.0,13943,0.995625
+MEGALEX,96,28466,1311740,46.0,37,74,0.889459,0.889272,0,28466,0,96,28466,96,28466,1311740,25776,0.087879,0.689944,0.991399,25776,1.0

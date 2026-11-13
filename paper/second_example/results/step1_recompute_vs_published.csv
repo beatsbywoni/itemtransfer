@@ -1,0 +1,31 @@
+megastudy,measure,published,kind,n_words,n_compared,n_published_missing,pearson,spearman,n_equal,share_equal,n_within_0_05,mean_difference,max_abs_difference
+British Lexicon Project,length,nletters (stimulus file),same quantity,28730,28730,0,0.999986700616488,0.9999963083802256,28728.0,0.9999303863557256,28728.0,-6.961364427427775e-05,1.0
+British Lexicon Project,length,nletters against number of characters,same quantity,28730,28730,0,0.9999999999999976,1.0,28730.0,1.0,28730.0,0.0,0.0
+British Lexicon Project,old20,OLD20 (stimulus file),same quantity,28730,28730,0,0.98668520347941,0.9896789833900757,12855.0,0.4474416985729202,18992.0,0.0812304211625478,1.8999999999999997
+British Lexicon Project,old20_equal_lexicon,OLD20 (stimulus file),same quantity,28730,28730,0,0.9531637259129953,0.9566639811492668,502.0,0.0174730247128437,1923.0,0.3795997215454229,2.1
+British Lexicon Project,zipf,log10(SUBTLEX count + 1) (stimulus file),other norm,28730,28730,0,0.8615048611334645,0.8584571805998582,,,,,
+British Lexicon Project,zipf,log10(BNC count + 1) (stimulus file),other norm,28730,28730,0,0.903772169180736,0.9054164978297476,,,,,
+British Lexicon Project,zipf,SUBTLEX-UK Zipf (file),other norm,28730,27296,1434,0.9107247497686533,0.9044401516474776,,,,,
+British Lexicon Project,zipf,SUBTLEX-US Zipf (file),other norm,28730,25316,3414,0.8898926526918246,0.8763832666329792,,,,,
+Dutch Lexicon Project,length,nchar (stimulus file),same quantity,14089,13943,146,0.9939686495869148,0.9920501334813028,13734.0,0.9850103994836118,13734.0,-0.0197948791508283,4.0
+Dutch Lexicon Project,length,nchar against number of characters,same quantity,14089,13943,146,0.9961664413445276,0.995097683536352,13882.0,0.9956250448253604,13882.0,-0.0090367926558129,4.0
+Dutch Lexicon Project,length,nchar against letters + 2 per non-ASCII letter,same quantity,14089,13943,146,0.9999999999999988,1.0,13943.0,1.0,13943.0,0.0,0.0
+Dutch Lexicon Project,length,nchar against UTF-8 bytes,same quantity,14089,13943,146,0.9990415727483564,0.998785314885802,13882.0,0.9956250448253604,13882.0,-0.0045183963279064,2.0
+Dutch Lexicon Project,old20,OLD20 (stimulus file),same quantity,14089,14089,0,0.919102915557121,0.9198200485531496,755.0,0.0535879054581588,1741.0,0.3952196749236993,2.2
+Dutch Lexicon Project,zipf,log10(SUBTLEX-NL count + 1) (stimulus file),other norm,14089,13195,894,0.8783061113416185,0.872930728356564,,,,,
+Dutch Lexicon Project,zipf,log10(CELEX count + 1) (stimulus file),other norm,14089,14078,11,0.8273830482317474,0.8063935388253439,,,,,
+Dutch Lexicon Project,zipf,SUBTLEX-NL Zipf (file),other norm,14089,12673,1416,0.8782900581413241,0.8645126258635742,,,,,
+MEGALEX,length,nblettres (item file),same quantity,28466,25776,2690,0.9999999999999952,1.0,25776.0,1.0,25776.0,0.0,0.0
+MEGALEX,old20,old20 (item file),same quantity,28466,25776,2690,0.890027363747465,0.904724659773972,1006.0,0.0390285536933581,2880.0,0.3727653631284916,2.15
+MEGALEX,old20_equal_lexicon,old20 (item file),same quantity,28466,25776,2690,0.8512663408725174,0.8673131439786798,26.0,0.0010086902545003,122.0,0.7181758224705153,2.7
+MEGALEX,zipf,fb (item file),other norm,28466,25776,2690,0.1763982883072323,0.6915971574816823,,,,,
+MEGALEX,zipf,ff (item file),other norm,28466,25776,2690,0.1909350498690197,0.8203630685824855,,,,,
+MEGALEX,zipf,ft (item file),other norm,28466,25776,2690,0.1909807715463081,0.789970461230729,,,,,
+English Lexicon Project,zipf,SUBTLEX-US Zipf (file),other norm,40481,35515,4966,0.8564700499023028,0.8411233980090739,,,,,
+English Lexicon Project,zipf,SUBTLEX-UK Zipf (file),other norm,40481,36362,4119,0.8928356430344709,0.8825720631161161,,,,,
+English Lexicon Project,length,Length (elexicon item file),same quantity,40481,40481,0,0.9978124084899201,0.9973601682383401,39382.0,0.9728514611793186,39382.0,-0.02717324176774289,2.0
+English Lexicon Project,length,Length against number of characters,same quantity,40481,40481,0,1.0,1.0,40481.0,1.0,40481.0,0.0,0.0
+English Lexicon Project,old20,OLD (elexicon item file),same quantity,40481,39382,1099,0.9987425289067405,0.9996646682636524,36671.0,0.9311614443146615,38454.0,-0.004406023056218577,7.4
+English Lexicon Project,old20_equal_lexicon,OLD (elexicon item file),same quantity,40481,39382,1099,0.97385139610168,0.977528721993441,229.0,0.005814839266670052,829.0,0.5238188004672185,8.15
+English Lexicon Project,zipf,Log_Freq_HAL (elexicon item file),other norm,40481,40481,0,0.9417716147301084,0.942237803136828,,,,,
+English Lexicon Project,zipf,LgSUBTLWF (elexicon item file),other norm,40481,35515,4966,0.856469961099158,0.8411233678730305,,,,,

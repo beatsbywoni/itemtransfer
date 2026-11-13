@@ -1,0 +1,4 @@
+megastudy,norm,n_words,n_in_norm,n_wordfreq_unknown,n_wordfreq_unknown_but_in_norm,n_in_wordfreq_but_not_in_norm
+English Lexicon Project,SUBTLEX-US Zipf (file),40481,35515,963,105,4108
+British Lexicon Project,SUBTLEX-UK Zipf (file),28730,27296,666,257,1025
+Dutch Lexicon Project,SUBTLEX-NL Zipf (file),14089,12673,521,36,931

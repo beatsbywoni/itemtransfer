@@ -1,0 +1,17 @@
+{
+ "stage": "step2",
+ "started": "2026-11-13T10:19:41+0900",
+ "seed": 20261113,
+ "python": "3.13.17",
+ "numpy": "2.5.3",
+ "pandas": "3.0.5",
+ "scipy": "1.18.1",
+ "itemtransfer": "0.1.0",
+ "cpu_count": 2,
+ "itemtransfer_path": "./itemtransfer/itemtransfer",
+ "n_word_trials_all": 4353921,
+ "n_shared_words_elp_blp": 18978,
+ "agreement_n_shared": 18978,
+ "seconds": 157.9,
+ "max_rss_gb": 1.97
+}

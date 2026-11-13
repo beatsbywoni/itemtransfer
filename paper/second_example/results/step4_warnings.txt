@@ -1,0 +1,9 @@
+Measure 'length' takes 11 distinct values in held-out family 'BLP'. Ordering and prediction in this family can only reflect differences between these levels: a level indicator fitted in the family reduces log loss by 0.003, the transferred measure by 0.003.
+Measure 'length' takes 11 distinct values in held-out family 'DLP'. Ordering and prediction in this family can only reflect differences between these levels: a level indicator fitted in the family reduces log loss by 0.006, the transferred measure by 0.004.
+Measure 'length' takes 21 distinct values in held-out family 'ELP'. Ordering and prediction in this family can only reflect differences between these levels: a level indicator fitted in the family reduces log loss by 0.000, the transferred measure by -0.005.
+Measure 'length' takes 8 distinct values in held-out family 'MEGALEX'. Ordering and prediction in this family can only reflect differences between these levels: a level indicator fitted in the family reduces log loss by 0.003, the transferred measure by 0.002.
+Measures 'length' and 'old20' are strongly correlated in family 'BLP' (Spearman 0.75); their separate relations with accuracy cannot be told apart in that family.
+Measures 'length' and 'old20' are strongly correlated in family 'ELP' (Spearman 0.85); their separate relations with accuracy cannot be told apart in that family.
+Measures 'length' and 'old20' are strongly correlated in family 'MEGALEX' (Spearman 0.74); their separate relations with accuracy cannot be told apart in that family.
+The calibration slope of 'old20' for held-out family 'BLP' depends on the weighting of the training samples: 1.17 with weights by trials, 1.81 with equal weights.
+The calibration slope of 'old20' for held-out family 'ELP' depends on the weighting of the training samples: 1.45 with weights by trials, 2.57 with equal weights.

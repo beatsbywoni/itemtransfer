@@ -1,0 +1,32 @@
+"""Assemble manuscript.md (version 2) from its parts."""
+from pathlib import Path
+H = Path(__file__).resolve().parent
+def rd(n): return (H / n).read_text()
+def rep(s, a, b):
+    assert a in s, a[:70]
+    return s.replace(a, b)
+
+head = ("# Do item difficulty measures generalise to new stimulus sets? Leave-one-family-out validation, its pitfalls, and the itemtransfer package\n\n"
+        "Hongwon Jeong\n\nCenter for Creative Convergence Education, Hanyang University ERICA, Ansan, Republic of Korea\n\nORCID: 0009-0003-7908-7478\n\n"
+        "Correspondence: Hongwon Jeong, Center for Creative Convergence Education, Hanyang University ERICA, 55 Hanyangdaehak-ro, Sangnok-gu, Ansan, Gyeonggi-do 15588, Republic of Korea. Email: beatsbywoni@hanyang.ac.kr. Telephone: +82-31-400-5786\n\n")
+p2 = rd("q2_simulation.md")
+lex = rd("p3_lexical.md")
+kn = rd("p4_knapsack.md")
+kn = rep(kn, " when every training sample received equal weight, because the largest training sample, with its two close levels, then counted less.", " when every training sample received equal weight.")
+p5 = rd("p5_software_discussion.md")
+p5 = rep(p5, "[[LIMITATION-MARGINAL]]", "Families that differ in the variation between participants, or in item variation beyond the measure, differ in calibration slope even when the measure acts identically. The simulation puts the size of this effect at 10% to 20% for a twofold difference in these standard deviations. A mixed model with crossed random effects removed the dependence on participant variation in the simulation, and it is the better tool for testing whether slopes differ. It has its own assumptions, among them a common item variance, and it is demanding to fit with tens of thousands of items.")
+p5 = rep(p5, "[[LIMITATION-META]]", "A random-effects meta-analysis of the slopes would address families in general, but with so few families it estimated the variation between them as zero in more than half of the simulated data sets.")
+body = "\n".join([head + rd("part0_abstract.md"), rd("p1_intro_procedure.md"), p2, lex, kn, p5, rd("part5_references.md")])
+CAP = {
+ 1: "**Figure 1.** Leave-one-family-out transfer validation. The slope of a measure is fitted on the training families and applied to the items of the held-out family, where it is judged by three criteria. Each family is held out in turn.",
+ 2: "**Figure 2.** The three criteria respond to different properties of the data. Ordering (A), scale (B) and prediction (C) for the held-out family in ten conditions of the simulation. Left of the dotted line, the true measure is analysed and the slope in the held-out family is the training slope multiplied by the factor shown. Right of the dotted line, the slope is the same in all families and the measure analysed has no relation with accuracy or is a proxy that correlates .7 with the true measure in all families, in the training families only, or in the held-out family only. Filled circles are medians over the simulated data sets, bars run from the 5th to the 95th percentile, and open diamonds are the values for very large samples. Triangles mark bars that continue beyond the plotted range. (D) Calibration slope when the true slope in the training families is weaker than in the held-out family. Open circles are data sets in which the weak training relation was flagged, filled circles data sets without the flag; percentages give the share of flagged data sets.",
+ 3: "**Figure 3.** Design features of the held-out family that change what the criteria can show. (A) Ordering when the measure in the held-out family is continuous or takes four or two levels, for a graded relation (circles) and for a step (squares). Filled black symbols show the transferred measure, open symbols a level indicator, and small grey symbols the mean correlation within levels; for the continuous measure, the two halves of a median split serve as levels. (B) Reduction in log loss of the level indicator minus that of the transferred measure; values above zero mean that the indicator predicts better. (C) Calibration slope when the range of the measure in the held-out family equals the training range, is shifted or is wider, under three forms of the true relation. Symbols show values for very large samples, bars the 5th to 95th percentile of the estimates. (D) Mean ordering as a function of the number of participants for three sizes of the item residual: observed, divided by the square root of the split-half reliability, and computed without response noise (horizontal marks).",
+ 4: "**Figure 4.** Performance of the bootstrap over participants and items when one design factor is varied at a time. (A) Detection rate: the share of data sets in which the 95% interval excludes 0. (B) Coverage of the 95% interval, the share of intervals that contain the true value; the dashed line marks the nominal level. The ordering interval shown here is the one from the bootstrap over participants and items; its falling coverage with more items is the reason why the procedure uses an interval from resampled items instead. (C) Median width of the interval of the calibration slope and the width of the central 95% of the estimates. Each point is based on 1,000 data sets.",
+ 5: "**Figure 5.** Lexical decision example. Proportion of correct responses to words in four megastudies as a function of word frequency, word length and neighbourhood distance (labelled OLD20 in the figure). Words were grouped into bins of the measure; bins with fewer than 30 words are not shown. The leftmost point of the frequency panel contains the words that are absent from the frequency resource.",
+ 6: "**Figure 6.** Knapsack example. (A to C) Item accuracy against instance complexity in each held-out family. The solid line applies the slope trained on the other two families, and the dashed line the slope fitted in the family itself. Grey areas mark the range of instance complexity in the training families. (D to F) Ordering, calibration slope and reduction in log loss for the four measures, with 95% bootstrap intervals. Open symbols mark a weak training relation, for which no calibration slope is shown (crosses in E); arrowheads mark intervals that continue beyond the plotted range. The grey band in E is the tolerance of 0.80 to 1.25.",
+}
+for k, c in CAP.items():
+    body = rep(body, f"*Figure {k} about here.*", f"![](../figures/figure{k}.png)\n\n{c}")
+assert "about here" not in body and "[[DISC" not in body and "[[LIM" not in body
+(H / "manuscript.md").write_text(body)
+print(len(body.split()))

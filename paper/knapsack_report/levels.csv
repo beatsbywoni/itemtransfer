@@ -1,0 +1,13 @@
+family,measure,n_items,n_distinct,n_levels,kind,gap_ratio
+Doroc,instance_complexity,72,58,2,clustered,3.602195822360652
+Doroc,typical_case_complexity,72,71,0,none,0.15816545220745826
+Doroc,sahni_k,72,4,4,discrete,inf
+Doroc,solver_effort,72,33,0,none,0.3238905377708212
+Franco,instance_complexity,72,72,0,none,0.23088727667857137
+Franco,typical_case_complexity,72,67,0,none,1.0689498752551596
+Franco,sahni_k,72,3,3,discrete,inf
+Franco,solver_effort,72,15,0,none,0.5093842420452561
+Lu,instance_complexity,120,100,2,clustered,31.75113831685719
+Lu,typical_case_complexity,120,98,0,none,0.12791313559322035
+Lu,sahni_k,120,4,4,discrete,inf
+Lu,solver_effort,120,21,0,none,0.4918589338174574
