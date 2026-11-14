@@ -155,10 +155,6 @@ Timeline (all on 13 November 2026, Korean time). The dates of the plan are the t
 | afternoon | Simulation of the ordering interval (Part 2, S5); package changed to the items-only interval; tolerance of 0.80 to 1.25 introduced in place of the planned rule (interval includes 1) | All results of the example |
 | evening | Transfer analysis rerun with version 0.2.0 (identical calibration slopes and reductions in log loss); cubic frequency function added | |
 
-![](../second_example/results/figures/figure_lexical_transfer.png)
-
-**Figure S1.** Ordering, calibration slope and reduction in log loss for the three measures and the three-measure model in each held-out megastudy. Dotted lines in the left panel mark the square root of the rank-scale reliability. This figure was drawn before the ordering interval was changed: its ordering intervals are the earlier ones from the bootstrap over participants and items, which are centred too low. The final intervals are in the table above.
-
 ## 1.8 Mixed model in the simulation study (Table 6 of the article)
 
 Script `glmm/glmm_simulation.R`, files `glmm/glmm_simulation_raw.csv` (one row per data set) and `glmm/glmm_simulation_summary.csv`. Data were generated in R as in the base condition (four families, 48 items and 40 participants each, complete design, intercept 1, slope 0.5, item residual SD 0.5, ability SD 0.8), with the changes named in the scenario; 200 data sets per scenario, seeds 2610 to 2615. Mixed model: `y ~ 0 + family + x_training + x_heldout + (1 | participant) + (1 | item)` against `y ~ 0 + family + x + (1 | participant) + (1 | item)`, `lme4::glmer` with `nAGQ = 0` (a fast approximation in which the fixed effects are estimated in the penalised least-squares step) and optimiser bobyqa; likelihood-ratio test with 1 degree of freedom. The comparison without random effects uses the same fixed effects in `glm` and a likelihood-ratio test. All 1,200 fits returned estimates; none was excluded.
@@ -1594,6 +1590,10 @@ they include contention): loading 27 s, step 1 84 s, step 2 158 s, step 3 2,133 
 3,880 s, step 4 930 s, sensitivity 3,018 s, step 5 4,751 s; a single uncontended run of step 3 takes about
 25 minutes; peak memory 2.4 GB [run_info.json].
 
+
+![](../second_example/results/figures/figure_lexical_transfer.png)
+
+**Figure S1.** Ordering, calibration slope and reduction in log loss for the three measures and the three-measure model in each held-out megastudy. Dotted lines in the left panel mark the square root of the rank-scale reliability. This figure belongs to the report above and was drawn before the ordering interval was changed: its ordering intervals are the earlier ones from the bootstrap over participants and items, which are centred too low. The final intervals are in section 1.7.
 
 # Part 4. Knapsack example: output of the software (version 0.2.0)
 

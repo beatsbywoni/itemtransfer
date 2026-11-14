@@ -7,6 +7,7 @@ in order). The scripts write the raw files to `data_raw/`, which is not part of 
 
 Dataset codes: K2 = Franco et al. (2021), K4 = Franco et al. (2024), K5 = Doroc et al. (2025),
 K7 = Lu et al. (2025), K8 = optimisation-task data that the article does not use.
+The K5 files come from the OSF project y7m3s, whose components are nc94u (data), cusk9 (code) and hjq8z.
 
 | File | Content |
 |---|---|
