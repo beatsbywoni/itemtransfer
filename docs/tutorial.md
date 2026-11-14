@@ -168,8 +168,11 @@ Three things in this table are worth noting.
    interval from -54 to 58 in family C). Step 4 flags this.
 
 Useful options: `weights="equal"` gives every training sample the same total weight instead of letting every
-trial count once; `evaluate={"A": "A1"}` computes the criteria for family A on sample A1 only (by default the
-samples of a family are pooled); `holdout=["C"]` holds out only some families; `combined=False` skips the model
+trial count once; `evaluate={"A": "A1"}` computes the criteria for family A on sample A1 only. By default the
+samples of a held-out family are pooled: their responses per item are added, and the criteria refer to this pooled
+population with one evaluation intercept, whereas the training fit has one intercept per sample. Pooled criteria
+are not adjusted for the sample, so evaluate samples one at a time when they differ in overall accuracy and in
+which items they answered; `holdout=["C"]` holds out only some families; `combined=False` skips the model
 with all measures. `res.predictions` contains the transferred predictor and the accuracy of every held-out item,
 and `res.bootstrap[("A", "x")]` the resampled statistics.
 
@@ -186,10 +189,10 @@ for w in diag["warnings"]:
 ```
 
 ```
-- Measure 'x' takes 2 levels in held-out family 'C'. Ordering and prediction in this family can only reflect
-  differences between these levels: a level indicator fitted in the family reduces log loss by 0.097, the
-  transferred measure by 0.099. Within the levels, the correlations between measure and accuracy are 0.21,
-  -0.05.
+- The values of measure 'x' fall into 2 tight clusters in held-out family 'C'. Ordering and prediction in this
+  family may be dominated by the contrasts between the clusters; the relations within the clusters are reported
+  separately: a level indicator fitted in the family reduces log loss by 0.097, the transferred measure by 0.099.
+  Within the levels, the correlations between measure and accuracy are 0.21, -0.05.
 - The training slope of 'x_null' for held-out family 'A' has an interval that includes 0 (-0.0783 to 0.287). The
   calibration slope is then a ratio with a denominator near zero and is not informative; read the training slope
   and the held-out slope instead.
@@ -273,7 +276,7 @@ intercepts and spread of participant and item accuracies. (The values used to ge
 and 0.5.) By default all families share one slope, so the design represents successful transfer.
 
 ```python
-chk = it.check_intervals(design, n_sim=200, n_boot=200, n_jobs=2, seed=1)   # about 10 s
+chk = it.check_intervals(design, n_sim=200, n_boot=200, n_jobs=2, seed=1)   # about 10 s; calibration slope only
 chk[["family", "measure", "target", "mean_estimate", "coverage", "coverage_se",
      "mean_width", "rate_excludes_0", "rate_weak_training"]].round(2)
 ```
@@ -295,6 +298,9 @@ family measure  target  mean_estimate  coverage  coverage_se  mean_width  rate_e
 - `rate_excludes_0` is the share of data sets in which the interval excluded 0: the detection rate for `x`
   (100%), and the false detection rate for a measure without effect (`x_null`, 0%).
 - `rate_weak_training` is the share in which the training relation was flagged as weak (96% for `x_null`).
+- With `prediction=True` the check also covers the interval of the log-loss reduction (columns `logloss_target`,
+  `logloss_mean`, `logloss_coverage`, `logloss_coverage_se`, `logloss_rate_above_0`); it then takes longer. The
+  interval of the ordering correlation is not part of the check.
 - `mean_width` tells you what the design can distinguish: with intervals about 0.8 to 1.0 wide, a calibration
   slope of 1 cannot be told apart from 0.7 or 1.4.
 
@@ -327,6 +333,9 @@ With family slopes that differ, the `target` for family C is about 0.5 (half the
 out = it.report(trials, items, ["x", "x2", "x_null"], out_dir="transfer_report",
                 n_boot=2000, n_sim=200, n_jobs=2, seed=1)
 ```
+
+The interval check inside `report` covers the calibration slope; `check_prediction=True` adds the log-loss
+reduction.
 
 `report` runs steps 2 to 5 and returns the tables in a dictionary. With `out_dir` it also writes one CSV file per
 table, `warnings.txt`, a Markdown summary (`report.md`) and `run_info.json` (seed, settings, package versions,

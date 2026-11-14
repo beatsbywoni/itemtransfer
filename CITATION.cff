@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 title: "itemtransfer: leave-one-family-out transfer validation of item-level difficulty measures"
-version: 0.2.0
+version: 0.2.1
 type: software
 license: MIT
 authors:
@@ -9,4 +9,4 @@ authors:
     given-names: "Hongwon"
     orcid: "https://orcid.org/0009-0003-7908-7478"
 repository-code: "https://github.com/beatsbywoni/itemtransfer"
-doi: "10.5281/zenodo.24201429"
+doi: "10.5281/zenodo.24210664"

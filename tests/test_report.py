@@ -31,7 +31,7 @@ def test_report_writes_files(example, tmp_path):
     for heading in ["Step 2. Reliability ceiling", "Step 3. Transfer", "Step 4. Design diagnostics",
                     "Step 5. Interval check by simulation"]:
         assert heading in out["markdown"]
-    assert any("takes 2 levels in held-out family 'C'" in w for w in out["warnings"])
+    assert any("fall into 2 tight clusters in held-out family 'C'" in w for w in out["warnings"])
     assert out["run_info"]["version"] == it.__version__ and out["run_info"]["seed"] == 1
     back = pd.read_csv(tmp_path / "transfer.csv")
     assert np.allclose(back["calibration_slope"], out["transfer"]["calibration_slope"])

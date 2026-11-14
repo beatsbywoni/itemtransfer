@@ -5,7 +5,7 @@
     python3 code/10_harmonize_trials.py
 
 Inputs   data_proc/trials_{K2_dec,K2_opt,K4_dec,K4_opt,K5_dec,K7_dec}.csv (03), data_proc/trials_K8_opt.csv (03b, if
-         present), data_proc/instance_metrics.csv (09), data_proc/k5_responders.csv (04)
+         present), data_proc/instance_metrics.csv (09), data_proc/k5_responders.csv (04, optional)
 Outputs  data_proc/trials_harmonized.csv       canonical text version
          data_proc/trials_harmonized.parquet   same table (written only if pyarrow is installed)
          data_proc/harmonize_checks.csv
@@ -105,7 +105,12 @@ def check(name, ok, detail=""):
 
 def main() -> int:
     met = pd.read_csv(DP / "instance_metrics.csv")
-    resp = set(pd.read_csv(DP / "k5_responders.csv").participant)
+    # The responder list is optional: it comes from the authors' RDS files (02b_convert_rds.py, 04_validate_against_authors.py)
+    # and only fills the column k5_responder, which the analyses of the article do not use.
+    rf = DP / "k5_responders.csv"
+    resp = set(pd.read_csv(rf).participant) if rf.exists() else None
+    if resp is None:
+        print("data_proc/k5_responders.csv not found: the column k5_responder is left empty")
     parts = []
     for name, (study, context, limit, paced, window) in SOURCES.items():
         f = DP / f"trials_{name}.csv"
@@ -131,7 +136,7 @@ def main() -> int:
             "n_clicks": (t["n_clicks"] if not dec else np.nan),
             "items_selected": (t["items_selected"] if not dec else np.nan),
             "time_limit_s": limit, "self_paced": paced, "answer_window_s": window,
-            "k5_responder": (t.participant.isin(resp).astype(int) if name == "K5_dec" else np.nan)})
+            "k5_responder": (t.participant.isin(resp).astype(int) if name == "K5_dec" and resp is not None else np.nan)})
         m = met[(met.dataset == t.dataset.iloc[0]) & (met.variant == t.variant.iloc[0])]
         out = out.merge(m[["sample", "instance_key"] + METRICS], on=["sample", "instance_key"], how="left",
                         validate="many_to_one")

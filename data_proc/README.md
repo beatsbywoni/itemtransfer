@@ -1,9 +1,17 @@
 # data_proc/
 
-Tables of the knapsack example, derived from the original authors' repositories by the scripts in `code/`
-(`01_osf_download.py`, `02_unpack_raw.py`, `03_extract_datasets.py`, `03b_extract_k8.py`, `08_solver_effort.py`,
-`09_instance_metrics.py`, `10_harmonize_trials.py`; `run_3a_download.sh`, `run_3a2.sh` and `run_3a3.sh` call them
-in order). The scripts write the raw files to `data_raw/`, which is not part of this repository.
+Tables of the knapsack example, derived from the original authors' repositories by the scripts in `code/`.
+To rebuild them, run from the repository root (bash on Linux, macOS or WSL; Python 3.9+ with pandas and numpy):
+
+```
+bash code/run_3a_download.sh     # once, needs internet: downloads the repositories into data_raw/
+bash code/run_prep.sh            # steps 02, 03, 03b (optional), 08 (only if MiniZinc is installed), 09, 10
+```
+
+`data_raw/` is not part of this repository. Checked on 14 November 2026: with the downloaded files, `run_prep.sh`
+without MiniZinc reproduces the complete `trials_harmonized.csv` of the article (16,122 rows) in every column except
+`k5_responder`. That column is filled only when the optional steps `02b_convert_rds.py` (needs pyreadr) and
+`04_validate_against_authors.py` have been run; the article does not use it.
 
 Dataset codes: K2 = Franco et al. (2021), K4 = Franco et al. (2024), K5 = Doroc et al. (2025),
 K7 = Lu et al. (2025), K8 = optimisation-task data that the article does not use.

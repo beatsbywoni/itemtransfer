@@ -233,9 +233,14 @@ def diagnose(trials, items, measures, result=None, combined=True, weights="trial
                        logloss_difference_split_lo=float(np.percentile(diff, 2.5)),
                        logloss_difference_split_hi=float(np.percentile(diff, 97.5)))
             base_rows.append(row)
-            txt = (f"Measure '{m}' takes {info['n_levels']} "
-                   f"{'distinct values' if info['kind'] == 'discrete' else 'levels'} in held-out family '{f}'. "
-                   "Ordering and prediction in this family can only reflect differences between these levels: a level "
+            if info["kind"] == "discrete":
+                lead = (f"Measure '{m}' takes {info['n_levels']} distinct values in held-out family '{f}'. "
+                        "Ordering and prediction in this family can only reflect contrasts between these values: ")
+            else:
+                lead = (f"The values of measure '{m}' fall into {info['n_levels']} tight clusters in held-out family "
+                        f"'{f}'. Ordering and prediction in this family may be dominated by the contrasts between "
+                        "the clusters; the relations within the clusters are reported separately: ")
+            txt = (lead + "a level "
                    f"indicator fitted in the family reduces log loss by {row['logloss_reduction_levels']:.3f}, the "
                    f"transferred measure by {row['logloss_reduction_measure']:.3f}.")
             if np.isfinite(within).any():
@@ -346,8 +351,9 @@ def diagnose(trials, items, measures, result=None, combined=True, weights="trial
                 if np.isfinite(rho) and abs(rho) >= collinearity:
                     warnings.append(
                         f"Measures '{data.measures[a]}' and '{data.measures[c]}' are strongly correlated in family "
-                        f"'{f}' (Spearman {rho:.2f}); their separate relations with accuracy cannot be told apart "
-                        "in that family."
+                        f"'{f}' (Spearman {rho:.2f}); their separate relations with accuracy are hard to interpret in "
+                        "that family, and the coefficients of a joint model may depend strongly on the design. The "
+                        "flag is a heuristic and does not mean that the effects cannot be separated in principle."
                     )
 
     # ---------------------------------------------------------------- weighting of training samples

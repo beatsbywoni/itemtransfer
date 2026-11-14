@@ -44,11 +44,14 @@ print("\n".join(diag["warnings"]))
 
 # Step 5. Can the intervals be trusted for a design like this one?
 design = it.design_from_data(trials, items, "x")
-print(it.check_intervals(design, n_sim=200, n_boot=200, n_jobs=2))
+print(it.check_intervals(design, n_sim=200, n_boot=200, prediction=True, n_jobs=2))
 
 # Or everything in one call, with CSV files and a Markdown summary
-out = it.report(trials, items, measures, out_dir="transfer_report", n_sim=200, n_jobs=2, seed=1)
+out = it.report(trials, items, measures, out_dir="transfer_report", n_sim=200, check_prediction=True, n_jobs=2, seed=1)
 ```
+
+The interval check covers the calibration slope and, with `prediction=True` (in `report`: `check_prediction=True`),
+the log-loss reduction. It does not cover the interval of the ordering correlation.
 
 ## Options worth knowing
 
@@ -57,6 +60,9 @@ out = it.report(trials, items, measures, out_dir="transfer_report", n_sim=200, n
   it, or crosses a limit (`undetermined`). It reads `weak training relation` when the interval of the training
   slope includes 0, and `not applicable` when the measure does not vary. Choose the range before looking at the
   results.
+- `evaluate={family: sample}`: the sample of a held-out family on which the criteria are computed. By default all
+  samples of the family are pooled into one evaluation population with one intercept (the training fit has one
+  intercept per sample). Evaluate samples one at a time when sample-specific transfer is the question.
 - `ordering_boot="items"` (default) or `"two-way"`: resampling used for the interval of the ordering correlation.
 - `boot_batch=50`: process the bootstrap resamples in batches. Needed for data with tens of thousands of items;
   memory is about `boot_batch` times the number of items times 100 bytes.
@@ -109,7 +115,7 @@ spans two families, or a measure that is undefined for some items.
 | `diagnose(trials, items, measures)` | design diagnostics and warnings |
 | `simulate(design)` | draw a data set from a `Design` (`FamilyDesign`, `SampleDesign`) |
 | `design_from_data(trials, items, measure)` | build a `Design` that resembles your data |
-| `check_intervals(design)` | coverage of the calibration-slope interval and detection rates |
+| `check_intervals(design)` | coverage of the calibration-slope interval and detection rates; with `prediction=True` also for the log-loss reduction |
 | `report(trials, items, measures, out_dir=...)` | steps 2 to 5 in one call; CSV tables and `report.md` |
 | `plot_transfer(result, model)` | optional figure (needs matplotlib) |
 | `load_example()`, `example_design()` | the bundled synthetic data and the design that generated them |
@@ -133,8 +139,10 @@ author (skipped when those data are absent).
 - A calibration slope is a ratio. It is uninformative when the training slope is near zero; `diagnose` flags
   this.
 - Bootstrap intervals are percentile intervals (bias-corrected or basic on request). Their coverage depends on the
-  design; check it with `check_intervals` before attaching labels to results. In simulations the two-way intervals
-  were conservative (1.1 to 2.1 times wider than needed) and never below nominal coverage.
+  design; check it with `check_intervals` before attaching labels to results. In simulations with a common slope, the two-way
+  intervals of the calibration slope and the log-loss reduction were conservative (1.1 to 2.1 times wider than
+  needed, coverage 96.5% or more). The items-only interval of the ordering correlation had coverage between 90.5%
+  and 99% in complete designs; it is not covered by `check_intervals`.
 - In very large data the weak-training flag is not raised for slopes that are negligible but estimated precisely.
   Read the size of the training slope and the slope fitted in the held-out family as well.
 - The agreement interval resamples items and keeps participants fixed.
@@ -148,14 +156,14 @@ MIT licence (see `LICENSE`). Citation details are in `CITATION.cff`.
 
 | Path | Content |
 |---|---|
-| `itemtransfer/`, `tests/`, `docs/tutorial.md` | The package (version 0.2.0), its 78 tests and a tutorial with a synthetic data set |
+| `itemtransfer/`, `tests/`, `docs/tutorial.md` | The package (version 0.2.1), its 79 tests and a tutorial with a synthetic data set |
 | `examples/knapsack.py` | Script of the knapsack example of the article |
 | `paper/` | Materials of the article: simulation study, both worked examples, mixed models, figures, manuscript and supplement sources. See `paper/README.md` for the commands that reproduce every table and figure |
 | `code/`, `data_proc/` | Preparation of the knapsack data from the original authors' repositories, and the tables that may be redistributed |
 | `prereg/` | Analysis plan of the earlier analysis of the knapsack data (26 October 2026), which fixed the evaluation samples |
 
-Tests: `pip install ".[test]"`, then `python -m pytest -q` (under a minute; 3 tests need the complete knapsack data
-and result files of the earlier analysis and are skipped without them).
+Tests: `pip install ".[test]"`, then `python -m pytest -q` (under a minute; 76 pass and 3 are skipped in this repository, because
+they need the complete knapsack data and the result files of an earlier analysis, neither of which is distributed).
 
 ## Citation and licence
 

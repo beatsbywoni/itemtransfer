@@ -366,7 +366,13 @@ def transfer(trials, items, measures, combined=True, weights="trials", evaluate=
     evaluate : dict, optional
         ``{family: sample or list of samples}``: the sample(s) of a
         held-out family on which the criteria are computed. By default all
-        samples of the family are pooled.
+        samples of the family are pooled: their responses per item are
+        added, and ordering, scale and prediction refer to this pooled
+        population with a single evaluation intercept. The training fit, in
+        contrast, has one intercept per sample. Pooled criteria are not
+        estimates of a slope that is adjusted for the sample; when samples
+        of a family differ in overall accuracy and in which items they
+        answered, evaluate them one at a time.
     holdout : sequence, optional
         Families to hold out in turn (default: every family). All other
         families are always used for training.

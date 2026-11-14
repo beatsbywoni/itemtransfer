@@ -47,7 +47,7 @@ The scale could not be established for the two informative measures. All six of 
 | | Sahni-k | 0.09 / −0.22 | −.21 [−.40, .34] | weak training relation | −.003 [−.030, .005] |
 | | Solver effort | −0.11 / −0.24 | .31 [−.24, .51] | weak training relation | .005 [−.003, .015] |
 | Lu | Instance complexity | 10.6 / 11.3 | .62 [.51, .71] | 1.07 [0.66, 1.75] | .100 [.044, .149] |
-| | Typical-case complexity | −0.86 / −1.31 | .37 [.21, .51] | 1.52 [0.65, 3.42] | .030 [.005, .057] |
+| | Typical-case complexity | −0.86 / −1.30 | .37 [.21, .51] | 1.52 [0.65, 3.42] | .030 [.005, .057] |
 | | Sahni-k | −0.19 / 0.40 | −.19 [−.35, .18] | weak training relation | −.008 [−.027, .001] |
 | | Solver effort | −0.29 / 0.02 | −.11 [−.28, .05] | −0.06 [−0.89, 0.64] | −.021 [−.070, .002] |
 

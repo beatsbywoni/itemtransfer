@@ -45,7 +45,8 @@ def _ci(df, stat, digits=2):
 
 def report(trials, items, measures, out_dir=None, combined=True, weights="trials", evaluate=None, holdout=None,
            range_limits=None, reliability_only=None, n_boot=2000, n_splits=500, n_splits_reliability=1000, n_sim=0, n_boot_sim=200,
-           check_measure=None, n_jobs=1, seed=0, columns=None, tolerance=(0.80, 1.25), boot_batch=None):
+           check_measure=None, n_jobs=1, seed=0, columns=None, tolerance=(0.80, 1.25), boot_batch=None,
+           check_prediction=False):
     """Run the reliability ceiling, the transfer, the diagnostics and the interval check.
 
     Parameters
@@ -75,6 +76,10 @@ def report(trials, items, measures, out_dir=None, combined=True, weights="trials
         measure).
     tolerance, boot_batch
         Passed to :func:`itemtransfer.transfer`.
+    check_prediction : bool
+        If True, the interval check also covers the log-loss reduction
+        (``check_intervals(..., prediction=True)``), which takes longer. By
+        default the check covers the calibration slope only.
     n_jobs : int
         Worker processes for the interval check.
     seed : int
@@ -141,7 +146,7 @@ def report(trials, items, measures, out_dir=None, combined=True, weights="trials
         design = design_from_data(trials, items, cm, seed=seed, columns=columns)
         ev = {str(k): [str(s) for s in v] for k, v in res.settings["evaluate"].items()}
         out["interval_check"] = check_intervals(design, n_sim=n_sim, n_boot=n_boot_sim, weights=weights, evaluate=ev,
-                                                n_jobs=n_jobs, seed=seed)
+                                                prediction=bool(check_prediction), n_jobs=n_jobs, seed=seed)
         for _, r in out["interval_check"].iterrows():
             if r["measure"] == "x" and np.isfinite(r["coverage"]) and r["coverage"] < 0.90 - 2 * r["coverage_se"]:
                 out["warnings"].append(
@@ -157,7 +162,7 @@ def report(trials, items, measures, out_dir=None, combined=True, weights="trials
         package="itemtransfer", version=__version__, python=platform.python_version(), numpy=np.__version__,
         pandas=pd.__version__, scipy=scipy.__version__, seed=seed, n_boot=n_boot, n_splits=n_splits,
         n_splits_reliability=n_splits_reliability, n_sim=n_sim, n_boot_sim=n_boot_sim, weights=weights,
-        reliability_only=[str(s) for s in (reliability_only or [])],
+        reliability_only=[str(s) for s in (reliability_only or [])], check_prediction=bool(check_prediction),
         measures=list(measures), evaluate={str(k): [str(s) for s in v] for k, v in res.settings["evaluate"].items()},
         tolerance=None if tolerance is None else list(res.settings["tolerance"]),
         ordering_boot=res.settings["ordering_boot"], interval_type=res.settings["interval_type"],
@@ -216,7 +221,10 @@ def report(trials, items, measures, out_dir=None, combined=True, weights="trials
     if n_sim:
         md += [f"Data sets simulated from a design built on the measure '{check_measure or measures[0]}' "
                f"({n_sim} data sets, {n_boot_sim} resamples each). In the simulated design this measure is called x; "
-               "x_null is a measure without effect.", "", _md_table(out["interval_check"])]
+               "x_null is a measure without effect. "
+               + ("The check covers the calibration slope and the log-loss reduction." if check_prediction else
+                  "The check covers the calibration slope only; `check_prediction=True` adds the log-loss reduction.")
+               + " The interval of the ordering correlation is not part of this check.", "", _md_table(out["interval_check"])]
     else:
         md += ["Not run (n_sim = 0). Call `report(..., n_sim=200)` or `check_intervals` to check the coverage of the "
                "calibration-slope interval for a design like this one.", ""]

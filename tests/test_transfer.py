@@ -365,3 +365,22 @@ def test_items_without_responses_are_announced(example):
     extra = pd.concat([items, items.iloc[[0]].assign(item="never shown")], ignore_index=True)
     with pytest.warns(UserWarning, match="have no response"):
         it.transfer(trials, extra, ["x"], n_boot=0, n_splits=10)
+
+
+def test_pooled_evaluation_equals_one_sample_with_the_added_counts(example):
+    # Several evaluation samples of a held-out family are pooled: their responses per item are added and one
+    # intercept is used. The result equals that of a single sample that contains all these responses.
+    trials, items = example
+    fam = items.set_index("item")["family"]
+    samples_a = sorted(trials.loc[trials["item"].map(fam).eq("A"), "sample"].unique())
+    assert len(samples_a) >= 2
+    pooled = it.transfer(trials, items, ["x"], holdout=["A"], n_boot=0, n_splits=20, seed=3).table
+    merged = trials.copy()
+    in_a = merged["sample"].isin(samples_a)
+    merged.loc[in_a, "participant"] = merged.loc[in_a, "sample"].astype(str) + ":" + merged.loc[in_a, "participant"].astype(str)
+    merged.loc[in_a, "sample"] = samples_a[0]
+    single = it.transfer(merged, items, ["x"], holdout=["A"], n_boot=0, n_splits=20, seed=3).table
+    for col in ("ordering", "calibration_slope", "heldout_slope", "logloss_reduction"):
+        assert np.allclose(pooled[col], single[col], rtol=1e-8, atol=1e-10), col
+    one = it.transfer(trials, items, ["x"], holdout=["A"], evaluate={"A": samples_a[0]}, n_boot=0, n_splits=20, seed=3).table
+    assert not np.allclose(pooled["calibration_slope"], one["calibration_slope"])

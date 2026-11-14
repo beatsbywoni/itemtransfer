@@ -17,30 +17,57 @@ to its result files and script. Section 1.4 lists versions, seeds and settings.
 
 ## Reproducing the results
 
-Environment: Python 3.13 with the packages in `requirements.txt`; R 4.6.2 with lme4 2.1.0 for `glmm/`. Install the
-package from the repository root with `pip install ".[plot,test]"`. Commands are given from the repository root.
+Commands are given from the repository root. The package itself runs on any platform with Python 3.10 or later.
+The scripts of the article were run on Linux; the shell scripts need bash (Linux, macOS or WSL).
 
-1. Tests: `python -m pytest -q` (78 tests, under a minute; 3 are skipped without the complete knapsack data).
+Environment:
+
+```
+pip install ".[plot,test]"               # the package
+pip install -r paper/requirements.txt    # pinned versions used for the article (Python 3.13), with openpyxl
+```
+
+Further tools are needed only for single steps: R 4.6.2 with lme4 2.1.0 (`paper/glmm/`); MiniZinc 2.9.3 with
+Gecode 6.3.0 (solver effort of the knapsack items; optional, the result file is distributed); pandoc, LibreOffice
+and python-docx (building the DOCX and PDF files); pyreadr (only for the optional step `code/02b_convert_rds.py`).
+
+Two routes exist. The result files in this folder are complete, so tables and figures can be checked against them
+without any raw data (section 1.9 of the supplement names the file behind each table). Rebuilding the results from
+the raw data needs the downloads described in steps 4 and 5.
+
+1. Tests: `python -m pytest -q` (79 tests, under a minute; 76 pass and 3 are skipped, because they need the complete
+   knapsack data and the result files of an earlier analysis, neither of which is distributed).
 2. Tutorial with the synthetic data set: `docs/tutorial.md` (a few minutes).
 3. Simulation study: `bash paper/sim/run_all.sh` (about six hours on two cores; resumes from saved chunks), then
    `python paper/sim/make_tables.py`, `python paper/sim/make_figures.py` and `python paper/sim/exact_breakeven.py`.
    Mixed models: `Rscript paper/glmm/glmm_simulation.R` (about 20 minutes).
-4. Knapsack example: `data_proc/trials_harmonized.csv` in this repository lacks the rows of Lu et al. (2025),
-   whose data carry no licence. Rebuild the complete table from the authors' repositories with
-   `code/01_osf_download.py`, `code/02_unpack_raw.py`, `code/03_extract_datasets.py`, `code/08_solver_effort.py`,
-   `code/09_instance_metrics.py` and `code/10_harmonize_trials.py` (see `data_proc/README.md`). Then
-   `python examples/knapsack.py` (about two minutes), `python paper/figures/make_knapsack_figure.py` and
+4. Knapsack example. `data_proc/trials_harmonized.csv` in this repository lacks the rows of Lu et al. (2025),
+   whose data carry no licence, so the complete table has to be rebuilt first:
+   `bash code/run_3a_download.sh` (once, needs internet; downloads the authors' repositories into `data_raw/`),
+   then `bash code/run_prep.sh` (steps 02, 03, 03b, 08 if MiniZinc is installed, 09 and 10; see
+   `data_proc/README.md`). Then `python examples/knapsack.py` (a few minutes),
+   `python paper/figures/make_knapsack_figure.py` and
    `Rscript paper/glmm/glmm_knapsack.R data_proc/trials_harmonized.csv`. For the same reason
-   `knapsack_report/predictions.csv` is given here without the rows of the Lu family; the run restores them.
-5. Lexical decision example: obtain the files listed in `second_example/PROVENANCE.md` (sources, sizes and
-   SHA-256 checksums; the item file of the English Lexicon Project is requested from the project website), place
-   them under `second_example/original/`, check them with `sha256sum -c MANIFEST.sha256`, then run in
-   `second_example/`: `cache_trials.py`, `prep_measures.py`, `step1_elp_published.py`, `run_lexical.py` with the
-   stages `step2`, `step3`, `step3_equal`, `step4`, `sensitivity`, `step5` (several hours in total; `step3`
-   alone about 35 minutes), `posthoc_shared_words.py`, `nonlinear_frequency.py`, `finish_lexical.py`,
-   `figures_lexical.py`.
+   `paper/knapsack_report/predictions.csv` is given here without the rows of the Lu family; the run restores them.
+5. Lexical decision example. Obtain the files listed in `paper/second_example/PROVENANCE.md` (sources, sizes and
+   SHA-256 checksums; the item file of the English Lexicon Project is requested from the project website) and
+   place them under `paper/second_example/original/`. Then:
+
+   ```
+   cd paper/second_example/original && sha256sum -c MANIFEST.sha256 && cd ..
+   python cache_trials.py
+   python prep_measures.py
+   python step1_elp_published.py
+   for stage in step2 step3 step3_equal step4 sensitivity step5; do python run_lexical.py $stage; done
+   python posthoc_shared_words.py
+   python nonlinear_frequency.py
+   python finish_lexical.py
+   python figures_lexical.py
+   ```
+
+   The stages take several hours in total (`step3` alone about 35 minutes on two cores).
 6. Article and supplement: `python paper/manuscript/assemble.py`, `python paper/supplement/build_supplement.py`,
-   `bash paper/submission/build.sh` (needs pandoc, LibreOffice and python-docx).
+   `bash paper/submission/build.sh`.
 
 ## Licences
 

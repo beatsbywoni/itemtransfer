@@ -55,7 +55,7 @@ def test_two_level_design_triggers_level_warning(two_level):
     assert len(w) == 2 and (w["n_items"] == 30).all()
     assert (w["measure_max"] - w["measure_min"] < 0.05).all()
     assert w["accuracy_mean"].iloc[1] > w["accuracy_mean"].iloc[0]
-    msgs = [m for m in d["warnings"] if "takes 2 levels in held-out family 'C'" in m]
+    msgs = [m for m in d["warnings"] if "fall into 2 tight clusters in held-out family 'C'" in m]
     assert len(msgs) == 1 and "'x'" in msgs[0]
 
 

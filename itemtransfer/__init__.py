@@ -23,7 +23,7 @@ from .report import report
 from .simulate import Design, FamilyDesign, SampleDesign, check_intervals, design_from_data, simulate
 from .transfer import TransferResult, transfer
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 __all__ = [
     "reliability", "agreement", "transfer", "TransferResult", "diagnose", "detect_levels",

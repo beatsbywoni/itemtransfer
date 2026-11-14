@@ -65,13 +65,13 @@ A measure is treated as having a level structure in a family (a) when it takes a
 
 | Analysis | Package version | Bootstrap resamples | Random divisions of held-out items (estimate / within each resample) | Seed | Weights | Other settings |
 |---|---|---|---|---|---|---|
-| Knapsack example | 0.2.0 | 2000 | 500 / 10 | 20261016 (bootstrap), 20261017 (divisions) | every response counted once | Evaluation samples: Franco 2021, Doroc 2025, Lu 2025 main. Reliability only: Lu 2025 pilot. Ordering interval from items only. Tolerance 0.80 to 1.25. Reliability from 1000 splits. Simulation check: 200 data sets with 200 resamples |
+| Knapsack example | 0.2.1 | 2000 | 500 / 10 | 20261016 (bootstrap), 20261017 (divisions) | every response counted once | Evaluation samples: Franco 2021, Doroc 2025, Lu 2025 main. Reliability only: Lu 2025 pilot. Ordering interval from items only. Tolerance 0.80 to 1.25. Reliability from 1000 splits. Simulation check: 200 data sets with 200 resamples |
 | Lexical decision example, main analysis | 0.2.0 | 1000, in batches of 50 | 500 / 10 | 20261113 | every response counted once | Ordering interval from items only. Tolerance 0.80 to 1.25. Sensitivity analyses: 200 resamples |
 | Simulation study, S1 to S5 | 0.1.0 (the functions used are unchanged in 0.2.0) | 500 | 100 / 10 | 2601 to 2605; generator seeded by study, condition and replication | every response counted once | 1,000 or 2,000 data sets per condition unless stated in Part 2 |
 | Simulation study, S6 to S8 | 0.2.0 | 500 | 100 / 10 | 2606 to 2608 | every response counted once | See Part 2 |
 | Mixed models | R 4.6.2, lme4 2.1.0 | none | none | 2610 to 2615 (simulation) | not applicable | See 1.6 and 1.8 |
 
-The test suite of version 0.1.0 had 73 tests; version 0.2.0, which produced the results of both examples, has 78. In every analysis the model has one intercept per sample, an item that two samples share is one unit in the resampling of items, and when a family is held out none of its samples enters the training fit.
+The test suite of version 0.1.0 had 73 tests, version 0.2.0 had 78 and version 0.2.1 has 79. Version 0.2.1 differs from 0.2.0 in the wording of two diagnostic warnings (level structure, correlated measures), in an option of `report` that extends the simulation check to the prediction criterion, and in documentation. The knapsack example was rerun with version 0.2.1 and gave the same numbers; the lexical decision example and the simulation study were run with the versions given in the table. The training fit has one intercept per sample, and the main evaluations use one selected sample per held-out family (when several samples are selected, their responses per item are pooled and one evaluation intercept is used). An item that two samples share is one unit in the resampling of items, and when a family is held out none of its samples enters the training fit.
 
 ## 1.5 Knapsack example: recomputation of the measures (step 1)
 
@@ -1116,7 +1116,7 @@ differently. Two measures A and B are noisy versions of the latent driver of dif
 
 # Part 3. Lexical decision example: analysis plan and report (working documents, 13 November 2026)
 
-The plan (3.1) is reproduced as it was written, with its dated list of deviations. The report (3.2) was compiled before the simulation study was complete. Three of its statements are superseded and the final versions are in Part 1: the intervals of the ordering correlation (now from resampled items), the rule for the calibration slope (now a tolerance instead of "the interval includes 1"), and the remark that a non-linear frequency function had not been tried (see 1.7).
+The plan (3.1) is reproduced as it was written, with its dated list of deviations. The report (3.2) was compiled before the simulation study was complete, with version 0.1.0 of the package; warnings quoted in it have the wording of that version. Three of its statements are superseded and the final versions are in Part 1: the intervals of the ordering correlation (now from resampled items), the rule for the calibration slope (now a tolerance instead of "the interval includes 1"), and the remark that a non-linear frequency function had not been tried (see 1.7).
 
 ## 3.1 Analysis plan
 
@@ -1595,7 +1595,7 @@ they include contention): loading 27 s, step 1 84 s, step 2 158 s, step 3 2,133 
 
 **Figure S1.** Ordering, calibration slope and reduction in log loss for the three measures and the three-measure model in each held-out megastudy. Dotted lines in the left panel mark the square root of the rank-scale reliability. This figure belongs to the report above and was drawn before the ordering interval was changed: its ordering intervals are the earlier ones from the bootstrap over participants and items, which are centred too low. The final intervals are in section 1.7.
 
-# Part 4. Knapsack example: output of the software (version 0.2.0)
+# Part 4. Knapsack example: output of the software (version 0.2.1)
 
 The following report was written by `itemtransfer.report`. Column names are those of the software. Tables with more than nine columns are not reproduced here; they are in the CSV files of the repository.
 
@@ -1630,11 +1630,11 @@ Intervals of the training slope, the calibration slope and the reductions come f
 
 #### Step 4. Design diagnostics
 
-- Measure 'instance_complexity' takes 2 levels in held-out family 'Doroc'. Ordering and prediction in this family can only reflect differences between these levels: a level indicator fitted in the family reduces log loss by 0.055, the transferred measure by 0.044. Within the levels, the correlations between measure and accuracy are -0.14, -0.02.
-- Measure 'sahni_k' takes 4 distinct values in held-out family 'Doroc'. Ordering and prediction in this family can only reflect differences between these levels: a level indicator fitted in the family reduces log loss by -0.002, the transferred measure by -0.003.
-- Measure 'sahni_k' takes 3 distinct values in held-out family 'Franco'. Ordering and prediction in this family can only reflect differences between these levels: a level indicator fitted in the family reduces log loss by -0.027, the transferred measure by -0.000.
-- Measure 'instance_complexity' takes 2 levels in held-out family 'Lu'. Ordering and prediction in this family can only reflect differences between these levels: a level indicator fitted in the family reduces log loss by 0.097, the transferred measure by 0.100. Within the levels, the correlations between measure and accuracy are 0.25, -0.11.
-- Measure 'sahni_k' takes 4 distinct values in held-out family 'Lu'. Ordering and prediction in this family can only reflect differences between these levels: a level indicator fitted in the family reduces log loss by -0.003, the transferred measure by -0.008.
+- The values of measure 'instance_complexity' fall into 2 tight clusters in held-out family 'Doroc'. Ordering and prediction in this family may be dominated by the contrasts between the clusters; the relations within the clusters are reported separately: a level indicator fitted in the family reduces log loss by 0.055, the transferred measure by 0.044. Within the levels, the correlations between measure and accuracy are -0.14, -0.02.
+- Measure 'sahni_k' takes 4 distinct values in held-out family 'Doroc'. Ordering and prediction in this family can only reflect contrasts between these values: a level indicator fitted in the family reduces log loss by -0.002, the transferred measure by -0.003.
+- Measure 'sahni_k' takes 3 distinct values in held-out family 'Franco'. Ordering and prediction in this family can only reflect contrasts between these values: a level indicator fitted in the family reduces log loss by -0.027, the transferred measure by -0.000.
+- The values of measure 'instance_complexity' fall into 2 tight clusters in held-out family 'Lu'. Ordering and prediction in this family may be dominated by the contrasts between the clusters; the relations within the clusters are reported separately: a level indicator fitted in the family reduces log loss by 0.097, the transferred measure by 0.100. Within the levels, the correlations between measure and accuracy are 0.25, -0.11.
+- Measure 'sahni_k' takes 4 distinct values in held-out family 'Lu'. Ordering and prediction in this family can only reflect contrasts between these values: a level indicator fitted in the family reduces log loss by -0.003, the transferred measure by -0.008.
 - The training slope of 'sahni_k' for held-out family 'Doroc' has an interval that includes 0 (-0.198 to 0.449). The calibration slope is then a ratio with a denominator near zero and is not informative; read the training slope and the held-out slope instead.
 - The training slope of 'solver_effort' for held-out family 'Doroc' has an interval that includes 0 (-0.257 to 0.0288). The calibration slope is then a ratio with a denominator near zero and is not informative; read the training slope and the held-out slope instead.
 - The training slope of 'sahni_k' for held-out family 'Franco' has an interval that includes 0 (-0.312 to 0.227). The calibration slope is then a ratio with a denominator near zero and is not informative; read the training slope and the held-out slope instead.
@@ -1642,7 +1642,7 @@ Intervals of the training slope, the calibration slope and the reductions come f
 - The training slope of 'sahni_k' for held-out family 'Lu' has an interval that includes 0 (-0.402 to 0.0616). The calibration slope is then a ratio with a denominator near zero and is not informative; read the training slope and the held-out slope instead.
 - Only 76% of the items of held-out family 'Doroc' lie inside the range of 'solver_effort' in the training families (0 to 4.81).
 - Only 53% of the items of held-out family 'Franco' lie inside the range of 'instance_complexity' in the training families (0.00803 to 0.162); the trained slope is extrapolated. On the common range the calibration slope is 1.43 instead of 0.64.
-- Measures 'instance_complexity' and 'typical_case_complexity' are strongly correlated in family 'Franco' (Spearman -0.72); their separate relations with accuracy cannot be told apart in that family.
+- Measures 'instance_complexity' and 'typical_case_complexity' are strongly correlated in family 'Franco' (Spearman -0.72); their separate relations with accuracy are hard to interpret in that family, and the coefficients of a joint model may depend strongly on the design. The flag is a heuristic and does not mean that the effects cannot be separated in principle.
 - The calibration slope of 'typical_case_complexity' for held-out family 'Lu' depends on the weighting of the training samples: 1.52 with weights by trials, 1.14 with equal weights.
 
 ##### Level structure
@@ -1707,7 +1707,7 @@ Intervals of the training slope, the calibration slope and the reductions come f
 
 #### Step 5. Interval check by simulation
 
-Data sets simulated from a design built on the measure 'instance_complexity' (200 data sets, 200 resamples each). In the simulated design this measure is called x; x_null is a measure without effect.
+Data sets simulated from a design built on the measure 'instance_complexity' (200 data sets, 200 resamples each). In the simulated design this measure is called x; x_null is a measure without effect. The check covers the calibration slope only; `check_prediction=True` adds the log-loss reduction. The interval of the ordering correlation is not part of this check.
 
 *(Table with 17 columns omitted from this document because of its width; the complete table is in the CSV files of the repository folder `paper/knapsack_report`.)*
 
@@ -1716,10 +1716,10 @@ Data sets simulated from a design built on the measure 'instance_complexity' (20
 ```
 {
  "package": "itemtransfer",
- "version": "0.2.0",
+ "version": "0.2.1",
  "python": "3.13.17",
- "numpy": "2.5.3",
- "pandas": "3.0.5",
+ "numpy": "2.5.4",
+ "pandas": "3.1.1",
  "scipy": "1.18.1",
  "seed": 20261016,
  "n_boot": 2000,
@@ -1731,6 +1731,7 @@ Data sets simulated from a design built on the measure 'instance_complexity' (20
  "reliability_only": [
   "Lu 2025 pilot"
  ],
+ "check_prediction": false,
  "measures": [
   "instance_complexity",
   "typical_case_complexity",
@@ -1757,7 +1758,7 @@ Data sets simulated from a design built on the measure 'instance_complexity' (20
  "level": 0.95,
  "boot_batch": null,
  "n_jobs": 2,
- "platform": "Linux-6.18.44-fc-v445-x86_64-with-glibc2.39",
- "run_time_seconds": 37.1
+ "platform": "Linux-6.18.44-fc-v470-x86_64-with-glibc2.39",
+ "run_time_seconds": 31.2
 }
 ```
